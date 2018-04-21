@@ -1,19 +1,14 @@
 {
-  "name": "project3",
+  "name": "project-example",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "server/index.js",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preinstall": "npm install --prefix server && npm install --prefix client && cd client && npm run build && cd ..",
+    "start": "node server/index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/makeitsoo/project3.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/makeitsoo/project3/issues"
-  },
-  "homepage": "https://github.com/makeitsoo/project3#readme"
+  "cacheDirectories": [
+    "server/node_modules",
+    "client/node_modules"
+  ]
 }
