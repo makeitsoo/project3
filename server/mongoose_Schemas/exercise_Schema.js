@@ -14,5 +14,5 @@ const NewExercise = new Schema({
 // Compile model from schema
 const Exercise = mongoose.model('NewExercise', NewExercise);
 
-//Export the User
+//Export the Exercise
 module.exports = Exercise;
