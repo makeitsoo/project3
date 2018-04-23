@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import Week from './WeekContainer';
 import Detail from './DetailContainer';
-import SaveButton from './SaveButtonContainer'
+// import SaveButton from './SaveButtonContainer'
+import LogItButton from './LogItButtonContainer'
+import StatsButton from './StatsButtonContainer'
+
 import './App.css';
 
 class App extends Component {
@@ -11,7 +14,9 @@ class App extends Component {
         <Week />
         <hr />
         <Detail />
-        <SaveButton />
+
+        <LogItButton />
+        <StatsButton />
       </div>
     );
   }
