@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Week from './WeekContainer';
 import Detail from './DetailContainer';
-// import SaveButton from './SaveButtonContainer'
 import LogItButton from './LogItButtonContainer'
 import StatsButton from './StatsButtonContainer'
 
@@ -11,10 +10,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Week />
-        <hr />
-        <Detail />
-
         <LogItButton />
         <StatsButton />
       </div>
@@ -23,3 +18,23 @@ class App extends Component {
 }
 
 export default App;
+
+
+
+
+
+
+//////////////////
+// class App extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <Week />
+//         <hr />
+//         <Detail />
+//         <LogItButton />
+//         <StatsButton />
+//       </div>
+//     );
+//   }
+// }
