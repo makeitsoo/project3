@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Week from './WeekContainer';
 import Detail from './DetailContainer';
-import LogItButton from './LogItButtonContainer'
-import StatsButton from './StatsButtonContainer'
-import { Switch, Route } from 'react-router'
+import LogItButton from './LogItButtonContainer';
+import StatsButton from './StatsButtonContainer';
+import { Switch, Route } from 'react-router';
 
 import './App.css';
 
@@ -16,7 +16,7 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={Home}/>
-          <Route exact path="/stats" component={StatsButton}/>
+          <Route path="/stats" component={StatsButton}/>
           <Route path="/logit" component={LogItButton}/>
         </Switch>
 
