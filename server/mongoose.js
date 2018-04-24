@@ -15,7 +15,9 @@ mongoose.connect(db, function (error) {
 });
 
 //Mongoose promise
-mongoose.Promise = global.Promise;
-// mongoose.connect(MONGODB_URI, {
-//   useMongoClient: true
-// });
+mongoose.Promise = Promise;
+const database = mongoose.connect(MONGODB_URI, {
+  useMongoClient: true
+});
+
+module.exports = database;
