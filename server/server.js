@@ -19,15 +19,15 @@ mongoose.connect(db, function (error) {
 const app = express();
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
+app.get('app/', (req, res) => {
   res.send('hello world');
 });
 
-app.get('/hi', (req, res) => {
+app.get('app/hi', (req, res) => {
   res.json({ message: 'hello world' });
 });
 
-app.post('/echo', (req, res) => {
+app.post('app/echo', (req, res) => {
   res.json(req.body);
 });
 
