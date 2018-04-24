@@ -1,0 +1,52 @@
+Arguments: 
+  /Users/b_dub/.nvm/versions/node/v8.9.4/bin/node /Users/b_dub/.nvm/versions/node/v8.9.4/bin/yarn start
+
+PATH: 
+  /Users/b_dub/.nvm/versions/node/v8.9.4/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.9.4
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "project-example",
+    "version": "1.0.0",
+    "main": "server/index.js",
+    "license": "MIT",
+    "scripts": {
+      "preinstall": "npm install --prefix server && npm install --prefix client && cd client && npm run build && cd ..",
+      "start": "node server/index.js"
+    },
+    "cacheDirectories": [
+      "server/node_modules",
+      "client/node_modules"
+    ]
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Command failed.
+  Exit code: 1
+  Command: sh
+  Arguments: -c node server/index.js
+  Directory: /Users/b_dub/project3
+  Output:
+  
+      at ProcessTermError.MessageError (/Users/b_dub/.nvm/versions/node/v8.9.4/lib/node_modules/yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/Users/b_dub/.nvm/versions/node/v8.9.4/lib/node_modules/yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/Users/b_dub/.nvm/versions/node/v8.9.4/lib/node_modules/yarn/lib/cli.js:30281:17)
+      at emitTwo (events.js:126:13)
+      at ChildProcess.emit (events.js:214:7)
+      at maybeClose (internal/child_process.js:925:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
