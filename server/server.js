@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 //Set up default for Mongo connection
-const db = process.env.MONGODB_URI || 'mongodb://heroku_cd5pc5v6:53008qq13n4f6qutnvftqaom5g@ds255889.mlab.com:55889/heroku_cd5pc5v6';
+const db = process.env.MONGODB_URI || 'mongodb://localhost/workout_db';
 
 //Set up default mongoose connection and error handler
 mongoose.connect(db, function (error) {
