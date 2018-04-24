@@ -1,7 +1,7 @@
 import React from 'react';
-import GoogleButton from 'react-google-button'
+import GoogleButton from 'react-google-button';
 
-export default class LogItButton extends React.Component {
+export default class GoogleSignInButton extends React.Component {
   render() {
     return(
       	<GoogleButton
