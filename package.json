@@ -10,5 +10,8 @@
   "cacheDirectories": [
     "server/node_modules",
     "client/node_modules"
-  ]
+  ],
+  "dependencies": {
+    "react-google-button": "^0.5.3"
+  }
 }
