@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 //Set up default for Mongo connection
 const db = process.env.MONGODB_URI || 'mongodb://localhost/workout_db';
 
+const Workout = require('./mongoose_Schemas/workout_Schema.js');
 //Set up default mongoose connection and error handler
 mongoose.connect(db, function (error) {
   if (error) {
@@ -33,7 +34,7 @@ app.get('/', (req, res) => {
   res.send('hello world');
 });
 
-app.get('/workout', (req, res) => {
+app.get('/logit', (req, res) => {
   db.workout_db
     .find({})
     .then((workout_db) => {
@@ -44,19 +45,22 @@ app.get('/workout', (req, res) => {
     });
 });
 
-app.post('/workout', (req, res) => {
-  db.workout_db
-    .create(req.body)
-    .then((workout_db) => {
-      return db.workout_db.findOneAndUpdate({}, {$push: { workout:
-      workout_db._id}} , { new:true });
-    })
-    .then((workout_db) => {
-      res.json(workout_db);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
+app.post('/logit', (req, res) => {
+  const workout = new Workout;
+  workout.date = req.body.date;
+  workout.what = req.body.what;
+  workout.sets = req.body.sets;
+  workout.reps = req.body.reps;
+  workout.weight = req.body.weight;
+
+  workout.save(function(err) {
+    if(err) {
+      res.send(err);
+    } else {
+      res.json({message: 'workout logged!'})
+    }
+  })
+
 });
 
 app.use(express.static(`${__dirname}/public`));
