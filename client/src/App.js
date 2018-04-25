@@ -18,7 +18,7 @@ class App extends Component {
           <Route path="/stats" component={StatsButton}/>
           <Route path="/logit" component={LogItButton}/>
         </Switch>
-
+        <StaticFooter /> 
       </div>
     );
   }
