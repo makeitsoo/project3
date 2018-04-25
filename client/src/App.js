@@ -5,6 +5,8 @@ import LogItButton from './LogItButtonContainer';
 import StatsButton from './StatsButtonContainer';
 import Staticpage from './staticpage';
 import { Switch, Route } from 'react-router';
+import StaticFooter from './staticFooter';
+import Home from './DetailContainer';
 
 import './App.css';
 
@@ -18,34 +20,10 @@ class App extends Component {
           <Route path="/stats" component={StatsButton}/>
           <Route path="/logit" component={LogItButton}/>
         </Switch>
-        <StaticFooter /> 
+        <StaticFooter />
       </div>
     );
   }
 }
 
 export default App;
-
-
-
-
-
-
-
-
-  
-
-//////////////////
-// class App extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <Week />
-//         <hr />
-//         <Detail />
-//         <LogItButton />
-//         <StatsButton />
-//       </div>
-//     );
-//   }
-// }
