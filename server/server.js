@@ -20,33 +20,32 @@ mongoose.connect(db, function (error) {
 const app = express();
 app.use(bodyParser.json());
 
-// db.workout_db
-//   .create({workout_id: 1 })
-//   .then((workout) => {
-//     console.log(workout);
-//   })
-//   .catch( (err) => {
-//     console.log(err.message);
-//   });
-
+//Routes
 
 app.get('/', (req, res) => {
   res.send('hello world');
 });
 
-app.get('/logit', (req, res) => {
-  db.workout_db
-    .find({})
-    .then((workout_db) => {
-      res.json(workout_db);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
+app.get('/', (req, res) => {
+  Workout.find(function (err) {
+    if (err)
+      res.send(err);
+    res.json(req.workout);
+  });
 });
+
+//In the future if we want some type of filtering
+// app.get('/:id', (req, res) => {
+//   Workout.findById(req.params.workout_id, function (err, workout) {
+//     if (err)
+//       res.send(err);
+//     res.json(workout);
+//   });
+// });
 
 app.post('/logit', (req, res) => {
   const workout = new Workout;
+  workout.workout_id = req.body.workout_id;
   workout.date = req.body.date;
   workout.what = req.body.what;
   workout.sets = req.body.sets;
@@ -57,13 +56,23 @@ app.post('/logit', (req, res) => {
     if(err) {
       res.send(err);
     } else {
-      res.json({message: 'workout logged!'})
+      res.json({message: 'workout logged!'});
     }
-  })
-
+  });
 });
+
+app.delete((req, res) => {
+  Workout.remove({
+    workout_id: req.params.workout_id
+  }, function (err) {
+    if (err)
+      res.send(err);
+
+    res.json({ message: 'Successfully deleted' });
+  });
+});
+
 
 app.use(express.static(`${__dirname}/public`));
 
 module.exports = app;
-
