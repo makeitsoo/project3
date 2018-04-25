@@ -19,16 +19,44 @@ mongoose.connect(db, function (error) {
 const app = express();
 app.use(bodyParser.json());
 
-app.get('app/', (req, res) => {
+// db.workout_db
+//   .create({workout_id: 1 })
+//   .then((workout) => {
+//     console.log(workout);
+//   })
+//   .catch( (err) => {
+//     console.log(err.message);
+//   });
+
+
+app.get('/', (req, res) => {
   res.send('hello world');
 });
 
-app.get('app/hi', (req, res) => {
-  res.json({ message: 'hello world' });
+app.get('/workout', (req, res) => {
+  db.workout_db
+    .find({})
+    .then((workout_db) => {
+      res.json(workout_db);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
-app.post('app/echo', (req, res) => {
-  res.json(req.body);
+app.post('/workout', (req, res) => {
+  db.workout_db
+    .create(req.body)
+    .then((workout_db) => {
+      return db.workout_db.findOneAndUpdate({}, {$push: { workout:
+      workout_db._id}} , { new:true });
+    })
+    .then((workout_db) => {
+      res.json(workout_db);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
 app.use(express.static(`${__dirname}/public`));
