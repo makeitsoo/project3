@@ -13,7 +13,7 @@ mongoose.connect(db, function (error) {
     console.log(error);
   }
   else {
-    console.log('  🗂  Database Connected.');
+    console.log('Database Connected.');
   }
 });
 
@@ -22,11 +22,11 @@ app.use(bodyParser.json());
 
 //Routes
 
-app.get('/', (req, res) => {
-  res.send('hello world');
-});
+// app.get('/', (req, res) => {
+//   res.send('hello world');
+// });
 
-app.get('/', (req, res) => {
+app.get('/workout', (req, res) => {
   Workout.find(function (err) {
     if (err)
       res.send(err);
@@ -45,8 +45,6 @@ app.get('/', (req, res) => {
 
 app.post('/logit', (req, res) => {
   const workout = new Workout;
-  workout.workout_id = req.body.workout_id;
-  workout.date = req.body.date;
   workout.what = req.body.what;
   workout.sets = req.body.sets;
   workout.reps = req.body.reps;
@@ -56,6 +54,7 @@ app.post('/logit', (req, res) => {
     if(err) {
       res.send(err);
     } else {
+      console.log(workout)
       res.json({message: 'workout logged!'});
     }
   });
