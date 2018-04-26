@@ -2,7 +2,10 @@ import React from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login'; 
  
 const responseGoogle = (response) => {
-  console.log(response);
+  console.log(response.profileObj.email)
+  console.log(response.profileObj.googleId)
+  console.log(response.profileObj.givenName, response.profileObj.familyName);
+	  
 }
  
 
