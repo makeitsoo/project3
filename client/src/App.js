@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // import Detail from './DetailContainer';
 import LogItButton from './LogItButtonContainer';
 import StatsButton from './StatsButtonContainer';
+import GoogleLogin from './googleLogin';
 import Staticpage from './staticpage';
 import {
   BrowserRouter as Router,
@@ -21,7 +22,7 @@ class App extends Component {
         <div>
           <Staticpage />
           <Switch>
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={GoogleLogin}/>
             <Route path="/stats" component={StatsButton}/>
             <Route path="/logit" component={LogItButton}/>
           </Switch>
