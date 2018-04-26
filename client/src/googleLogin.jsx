@@ -1,11 +1,11 @@
 import React from 'react';
-import GoogleLogin from 'react-google-login';
- 
+import { GoogleLogin, GoogleLogout } from 'react-google-login'; 
  
 const responseGoogle = (response) => {
   console.log(response);
 }
  
+
 export default () => (
   <GoogleLogin
     clientId="882732018398-umlr401h2pk82i5g47au7000020f2400.apps.googleusercontent.com"
@@ -14,3 +14,14 @@ export default () => (
     onFailure={responseGoogle}
   />
 );
+
+
+// const Logout = () => (
+//     <GoogleLogout
+//       buttonText="Logout"
+//       onLogoutSuccess={logout}
+//     >
+//     </GoogleLogout>
+// );
+
+// export default {Login, Logout};

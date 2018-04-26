@@ -22,7 +22,7 @@ class App extends Component {
         <div>
           <Staticpage />
           <Switch>
-            <Route exact path="/" component={GoogleLogin}/>
+            <Route path="/" component={GoogleLogin}/>
             <Route path="/stats" component={StatsButton}/>
             <Route path="/logit" component={LogItButton}/>
           </Switch>

@@ -22,9 +22,9 @@ app.use(bodyParser.json());
 
 //Routes
 
-app.get('/', (req, res) => {
-  res.send('hello world');
-});
+// app.get('/', (req, res) => {
+//   res.send('hello world');
+// });
 
 app.get('/', (req, res) => {
   Workout.find(function (err) {
