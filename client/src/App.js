@@ -11,7 +11,6 @@ import {
   Switch
 } from "react-router-dom";
 import StaticFooter from './staticFooter';
-import Home from './DetailContainer';
 
 import './App.css';
 
