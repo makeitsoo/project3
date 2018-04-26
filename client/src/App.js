@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-// import Week from './WeekContainer';
-// import Detail from './DetailContainer';
-import LogItButton from './LogItButtonContainer';
-import StatsButton from './StatsButtonContainer';
+import LogIt from './LogItContainer';
+import Stats from './StatsTableContainer';
 import GoogleLogin from './googleLogin';
 import Staticpage from './staticpage';
 import {
@@ -11,8 +9,6 @@ import {
   Switch
 } from "react-router-dom";
 import StaticFooter from './staticFooter';
-import Home from './DetailContainer';
-
 import './App.css';
 
 class App extends Component {
@@ -23,8 +19,8 @@ class App extends Component {
           <Staticpage />
           <Switch>
             <Route path="/" component={GoogleLogin}/>
-            <Route path="/stats" component={StatsButton}/>
-            <Route path="/logit" component={LogItButton}/>
+            <Route path="/stats" component={Stats}/>
+            <Route path="/logit" component={LogIt}/>
           </Switch>
           <StaticFooter />
         </div>
