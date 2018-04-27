@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import LogIt from './LogItContainer';
+import LogIt from './components/LogItContain/LogItContain';
+import LogForm from './components/LogForm/LogForm';
 import Stats from './StatsTableContainer';
 import GoogleLogin from './googleLogin';
 import Staticpage from './staticpage';
@@ -17,6 +18,7 @@ class App extends Component {
       <Router>
         <div>
           <Staticpage />
+          <LogForm />
           <Switch>
             <Route path="/" component={GoogleLogin}/>
             <Route path="/stats" component={Stats}/>
