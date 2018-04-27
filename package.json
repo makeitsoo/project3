@@ -12,6 +12,7 @@
     "client/node_modules"
   ],
   "dependencies": {
+    "mongoose": "^5.0.16",
     "react-google-button": "^0.5.3"
   }
 }
