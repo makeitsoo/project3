@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LogIt from './components/LogItContain/LogItContain';
+// import LogIt from './components/LogItContain/LogItContain';
 import LogForm from './components/LogForm/LogForm';
 import Stats from './StatsTableContainer';
 import GoogleLogin from './googleLogin';
@@ -18,11 +18,10 @@ class App extends Component {
       <Router>
         <div>
           <Staticpage />
-          <LogForm />
           <Switch>
-            <Route path="/" component={GoogleLogin}/>
             <Route path="/stats" component={Stats}/>
-            <Route path="/logit" component={LogIt}/>
+            <Route path="/logit" component={LogForm}/>
+            <Route exact path="/" component={GoogleLogin}/>
           </Switch>
           <StaticFooter />
         </div>

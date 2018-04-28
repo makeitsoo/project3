@@ -5,8 +5,7 @@ export default class Staticpage extends React.Component {
     render() {
         return (
              <div className='container'>
-                <h1> BeastNode (placeholder for logo)</h1>
-                <h3> Track your Beast at the Gym </h3>
+                <h1> (placeholder for logo)</h1>
              </div>
         );
     }

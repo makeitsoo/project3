@@ -26,7 +26,17 @@ app.use(bodyParser.json());
 //   res.send('hello world');
 // });
 
+// path for retreiving ALL users workout history
 app.get('/workout', (req, res) => {
+  Workout.find(function (err) {
+    if (err)
+      res.send(err);
+    res.json(req.workout);
+  });
+});
+
+// path for retreiving Todays Workout table data only
+app.get('/todayworkout', (req, res) => {
   Workout.find(function (err) {
     if (err)
       res.send(err);
