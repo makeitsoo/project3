@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapStateToDispatch = (dispatch) => ({
-  changeDay: (day) => dispatch(actions.changeDateAction(day)),
+  changePage: (day) => dispatch(actions.changePageAction(day)),
 });
 
 export default connect(mapStateToProps, mapStateToDispatch)(StatsTable);

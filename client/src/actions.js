@@ -13,8 +13,8 @@ export const actionNames = {
 //   requestError: 'REQUEST_ERROR',
 // };
 
-export const changeDateAction = (day) => ({
-  type: actionNames.changeDate,
+export const changePageAction = (day) => ({
+  type: actionNames.changePage,
   payload: {
     day: day,
   },
@@ -25,8 +25,14 @@ export const requestStarted = {
 };
 
 
-export function changePageAction (requestBody) {
-  
+export const changePage = (dispatch) => {
+  dispatch(requestStarted);
+  setTimeout(() => {
+    dispatch({
+      type: actionNames.requestComplete,
+    });
+  }, 1000);
+  dispatch(makeRequest({ theSecret: 42 }));
 };
 
 export function logoutAction () {
