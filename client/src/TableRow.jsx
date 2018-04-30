@@ -1,8 +1,8 @@
 import React from 'react';
 
-const style = {
-  cursor: 'pointer',
-}
+// const style = {
+//   cursor: 'pointer',
+// }
 
 export default class TableRow extends React.Component {
   render() {

@@ -1,12 +1,20 @@
 export const actionNames = {
-  changeDate: 'CHANGE_DATE',
+  changePage: 'CHANGE_PAGE',
+  logout: 'LOGOUT',
   requestStarted: 'REQUEST_STARTED',
   requestComplete: 'REQUEST_COMPLETE',
   requestError: 'REQUEST_ERROR',
 };
 
-export const changeDateAction = (day) => ({
-  type: actionNames.changeDate,
+// export const actionNames = {
+//   changeDate: 'CHANGE_DATE',
+//   requestStarted: 'REQUEST_STARTED',
+//   requestComplete: 'REQUEST_COMPLETE',
+//   requestError: 'REQUEST_ERROR',
+// };
+
+export const changePageAction = (day) => ({
+  type: actionNames.changePage,
   payload: {
     day: day,
   },
@@ -17,7 +25,7 @@ export const requestStarted = {
 };
 
 
-export const saveCal = (dispatch) => {
+export const changePage = (dispatch) => {
   dispatch(requestStarted);
   setTimeout(() => {
     dispatch({
@@ -26,6 +34,20 @@ export const saveCal = (dispatch) => {
   }, 1000);
   dispatch(makeRequest({ theSecret: 42 }));
 };
+
+export function logoutAction () {
+
+};
+
+// export const saveCal = (dispatch) => {
+//   dispatch(requestStarted);
+//   setTimeout(() => {
+//     dispatch({
+//       type: actionNames.requestComplete,
+//     });
+//   }, 1000);
+//   dispatch(makeRequest({ theSecret: 42 }));
+// };
 
 
 export function makeRequest (requestBody) {
