@@ -24,10 +24,14 @@ class App extends Component {
 
     axios.get('/api/current_user')
       .then(response => {
-        console.log(response.data)
+        console.log(response)
       })
+
   }
   render() {
+    // set conditional render based on if the state = null, undefined, 
+    //  if true, show login
+    // else show stats
     return (
       <Router>
         <div>
