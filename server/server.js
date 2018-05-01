@@ -64,7 +64,7 @@ app.post('/logit', (req, res) => {
     if(err) {
       res.send(err);
     } else {
-      console.log(workout)
+      console.log(workout);
       res.json({message: 'workout logged!'});
     }
   });

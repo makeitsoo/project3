@@ -9,7 +9,7 @@ const Schema = mongoose.Schema;
 const NewWorkout = new Schema({
   date: {
     type: String,
-    default: moment().format('MM Do YY')
+    default: moment().format('MM/DD/YY')
   },
   what: String,
   sets: Number,
