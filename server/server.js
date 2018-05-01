@@ -11,7 +11,7 @@ require('./services/passport');
 //Set up default for Mongo connection
 const db = process.env.MONGODB_URI || 'mongodb://localhost/workout_db';
 
-// const Workout = require('./mongoose_Schemas/workout_Schema.js');
+const Workout = require('./models/workout_Schema.js');
 
 //Set up default mongoose connection and error handler
 mongoose.connect(db, function (error) {
