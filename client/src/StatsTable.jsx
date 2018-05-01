@@ -9,7 +9,7 @@ export default class StatsTable extends React.Component {
 		  	<thead>
 		    	<tr>
 		      		<th scope="col">Date</th>
-		      		<th scope="col">What?</th>
+		      		<th scope="col">Exercise</th>
 		      		<th scope="col">Set #</th>
 		      		<th scope="col">Reps</th>
 		      		<th scope="col">Wt</th>
