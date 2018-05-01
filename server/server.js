@@ -1,12 +1,18 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-// Require Mongoose
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
+const keys = require('./config/keys');
+
+require('./models/User');
+require('./services/passport');
 
 //Set up default for Mongo connection
 const db = process.env.MONGODB_URI || 'mongodb://localhost/workout_db';
 
-const Workout = require('./mongoose_Schemas/workout_Schema.js');
+// const Workout = require('./mongoose_Schemas/workout_Schema.js');
+
 //Set up default mongoose connection and error handler
 mongoose.connect(db, function (error) {
   if (error) {
@@ -19,6 +25,20 @@ mongoose.connect(db, function (error) {
 
 const app = express();
 app.use(bodyParser.json());
+
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [ keys.cookieKey ]
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./routes/authRoutes')(app);
+
+
 
 //Routes
 
