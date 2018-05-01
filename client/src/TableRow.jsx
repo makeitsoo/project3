@@ -9,7 +9,7 @@ import moment from 'moment';
 export default class TableRow extends React.Component {
 	state = {
 		date: moment().format('MM/DD/YY'),
-		exercise: '',
+		exercise: null,
 		sets: 0,
 		reps: 0,
 		weight: 0

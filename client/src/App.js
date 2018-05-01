@@ -18,28 +18,30 @@ class App extends Component {
   }
 
   componentDidMount() {
-    //  make axios request to  /api/current_user 
+    //  make axios request to  /api/current_user
     //  set the state of user to whatever the return value is
-    //  
+    //
 
     axios.get('/api/current_user')
       .then(response => {
         console.log(response)
+        //Possibly a conditional render here.
       })
 
   }
   render() {
-    // set conditional render based on if the state = null, undefined, 
+    //test to see if response can be obtained here
+    // set conditional render based on if the state = null, undefined,
     //  if true, show login
     // else show stats
     return (
       <Router>
         <div>
           <Staticpage />
-          <Switch>
-            <Route path="/logit" component={LogForm}/>
-            <Route exact path="/" component={Stats}/>
-          </Switch>
+            <Switch>
+              <Route path="/logit" component={LogForm}/>
+              <Route exact path="/" component={Stats}/>
+            </Switch>
           <StaticFooter />
         </div>
       </Router>
@@ -48,4 +50,3 @@ class App extends Component {
 }
 
 export default App;
-
