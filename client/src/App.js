@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-// import LogIt from './components/LogItContain/LogItContain';
 import LogForm from './components/LogForm/LogForm';
 import Stats from './StatsTableContainer';
 //import GoogleLogin from './googleLogin';
 import Staticpage from './staticpage';
+import axios from 'axios';
 import {
   BrowserRouter as Router,
   Route,
@@ -13,6 +13,20 @@ import StaticFooter from './staticFooter';
 import './App.css';
 
 class App extends Component {
+  state = {
+    user: null
+  }
+
+  componentDidMount() {
+    //  make axios request to  /api/current_user 
+    //  set the state of user to whatever the return value is
+    //  
+
+    axios.get('/api/current_user')
+      .then(response => {
+        console.log(response.data)
+      })
+  }
   render() {
     return (
       <Router>
@@ -30,7 +44,4 @@ class App extends Component {
 }
 
 export default App;
-
-            // don't need this landing page with Passport authentication 
-            // <Route exact path="/" component={GoogleLogin}/>
 
