@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 export default class LogForm extends React.Component {
   constructor(props) {
@@ -30,11 +31,24 @@ export default class LogForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert(
-      'Your exercise: ' + this.state.exercise +
-      ' | Your weight: ' + this.state.weight +
-      ' | Your reps: ' + this.state.reps);
+    // alert(
+    //   'Your exercise: ' + this.state.exercise +
+    //   ' | Your weight: ' + this.state.weight +
+    //   ' | Your reps: ' + this.state.reps);
     console.log(this.state);
+
+    axios.post('/singleworkout', {
+      exercise: this.state.exercise,
+      weight: this.state.weight,
+      reps: this.state.reps
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
     event.preventDefault();
   }
 
