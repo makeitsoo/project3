@@ -12,14 +12,14 @@ export default class StatsTable extends React.Component {
 		      		<th scope="col">Exercise</th>
 		      		<th scope="col">Set #</th>
 		      		<th scope="col">Reps</th>
-		      		<th scope="col">Wt</th>
+		      		<th scope="col">Lbs</th>
 		    	</tr>
 		  	</thead>
 			<tbody>
-				{this.props.days.map((eventsThisDay, day) => 
-          			<TableRow key={day} 
-          			day={day} 
-          			changeDay={this.props.changeDay} 
+				{this.props.days.map((eventsThisDay, day) =>
+          			<TableRow key={day}
+          			day={day}
+          			changeDay={this.props.changeDay}
           			count={eventsThisDay} />)}
 			</tbody>
 		</table>
