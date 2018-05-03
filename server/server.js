@@ -48,20 +48,14 @@ require('./routes/authRoutes')(app);
 
 // path for retreiving ALL users workout history
 app.get('/workout', (req, res) => {
-  Workout.find(function (err) {
-    if (err)
-      res.send(err);
-    res.json(req.workout);
-  });
+  Workout.find({})
+    .then(function (workout) { return res.json(workout); });
 });
 
 // path for retreiving Todays Workout table data only
-app.get('/todayworkout', (req, res) => {
-  Workout.find(function (err) {
-    if (err)
-      res.send(err);
-    res.json(req.workout);
-  });
+app.get('/todayworkout/:date', (req, res) => {
+  Workout.find({ date: req.params.date})
+    .then(function (workout) { return res.json(workout); });
 });
 
 //In the future if we want some type of filtering
