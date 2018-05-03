@@ -18,30 +18,31 @@ class App extends Component {
   }
 
   componentDidMount() {
-    //  make axios request to  /api/current_user
+    //  make axios request to  /api/current_user 
     //  set the state of user to whatever the return value is
-    //
+    //  
 
     axios.get('/api/current_user')
       .then(response => {
-        console.log(response)
-        //Possibly a conditional render here.
+        // console.log(response.data.googleId)
+        this.setState({user: response.data.googleId})
+        // state.user = response.data.googleId;
+        console.log(this.state.user)
+        // conditional render -- if response === undefined || null then render google login strategy
+        // else if id has a value then redirect to stats table
       })
 
   }
   render() {
-    //test to see if response can be obtained here
-    // set conditional render based on if the state = null, undefined,
-    //  if true, show login
-    // else show stats
+    // console.log(this.state.user)
     return (
       <Router>
         <div>
           <Staticpage />
-            <Switch>
-              <Route path="/logit" component={LogForm}/>
-              <Route exact path="/" component={Stats}/>
-            </Switch>
+          <Switch>
+            <Route path="/logit" component={LogForm}/>
+            <Route exact path="/" component={Stats}/>
+          </Switch>
           <StaticFooter />
         </div>
       </Router>
@@ -50,3 +51,4 @@ class App extends Component {
 }
 
 export default App;
+
