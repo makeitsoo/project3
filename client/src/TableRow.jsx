@@ -22,9 +22,7 @@ export default class TableRow extends Component {
 			.then(exercise => this.setState({ exercise: exercise }))
 			.then(sets => this.setState({ sets: sets }))
 			.then(reps => this.setState({ reps: reps }))
-			.then(weight => this.setState({ weight: weight }))	
-		console.log(date.date)    
-
+			.then(weight => this.setState({ weight: weight }))
  };
 
 	render() {
