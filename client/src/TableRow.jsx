@@ -14,7 +14,7 @@ export default class TableRow extends Component {
 		}
 	 	}
 	 }
-
+  
 	componentDidMount() {
 		fetch('/workout')
 			.then(res => res.json())
@@ -24,7 +24,6 @@ export default class TableRow extends Component {
 			.then(reps => this.setState({ reps: reps }))
 			.then(weight => this.setState({ weight: weight }))	
 		console.log(date.date)    
-
  };
 
 	render() {
