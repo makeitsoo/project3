@@ -37,19 +37,34 @@ export default class LogForm extends React.Component {
     //   ' | Your reps: ' + this.state.reps);
     console.log(this.state);
 
-    axios.post('/logit', {
-      exercise: this.state.exercise,
-      weight: this.state.weight,
-      reps: this.state.reps
-    })
-    .then(function (response) {
+    var postHeaders = new Headers();
+    postHeaders.append('Content-Type', 'application/json');
+
+    var postInit = { method: 'POST',
+                   headers: postHeaders,
+                   body: JSON.stringify(this.state)};
+
+    var postRequest = new Request(this.state,postInit);
+
+    fetch(postRequest).then(function(response) {
       console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
     });
 
-    event.preventDefault();
+
+
+    // axios.post('/logit', {
+    //   exercise: this.state.exercise,
+    //   weight: this.state.weight,
+    //   reps: this.state.reps
+    // })
+    // .then(function (response) {
+    //   console.log(response);
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
+    //
+    // event.preventDefault();
   }
 
   render() {
