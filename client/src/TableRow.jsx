@@ -14,11 +14,11 @@ export default class TableRow extends React.Component {
 		reps: 0,
 		weight: 0
 	}
-	componentDidMount() {
-		fetch('/workout')
-			.then(res => res.json())
-			.then(date => this.setState({ date }));
-	}
+	// componentDidMount() {
+	// 	fetch('/workout')
+	// 		.then(res => res.json())
+	// 		.then(date => this.setState({ date }));
+	// }
 
 	render() {
 		return (
