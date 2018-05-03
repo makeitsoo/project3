@@ -73,7 +73,7 @@ app.get('/todayworkout', (req, res) => {
 //   });
 // });
 
-app.post('/postWorkout', (req, res) => {
+app.post('/logit', (req, res) => {
   const workout = new Workout;
   workout.exercise = req.body.exercise;
   workout.sets = req.body.sets;

@@ -15,9 +15,13 @@ export default class TableRow extends React.Component {
 		weight: 0
 	}
 	componentDidMount() {
-		fetch('/workout')
-			.then(res => res.json())
-			.then(date => this.setState({ date }));
+		// fetch('/workout')
+		// 	.then(
+		// 		res => res.json()
+		// 	)
+		// 	.then(
+		// 		date => this.setState({ date })
+		// 	);
 	}
 
 	render() {
