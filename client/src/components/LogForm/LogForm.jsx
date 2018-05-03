@@ -37,7 +37,7 @@ export default class LogForm extends React.Component {
     //   ' | Your reps: ' + this.state.reps);
     console.log(this.state);
 
-    axios.post('/singleworkout', {
+    axios.post('/logit', {
       exercise: this.state.exercise,
       weight: this.state.weight,
       reps: this.state.reps
