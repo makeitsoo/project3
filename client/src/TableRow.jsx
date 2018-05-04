@@ -38,6 +38,7 @@ export default class TableRow extends Component {
 			// }))	
 			)};	
 
+
 	render() {
 		console.log("state", this.state)
 		return (

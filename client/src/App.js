@@ -24,14 +24,17 @@ class App extends Component {
 
     axios.get('/api/current_user')
       .then(response => {
-        console.log(response)
+        // console.log(response.data.googleId)
+        this.setState({user: response.data.googleId})
+        // state.user = response.data.googleId;
+        console.log(this.state.user)
+        // conditional render -- if response === undefined || null then render google login strategy
+        // else if id has a value then redirect to stats table
       })
 
   }
   render() {
-    // set conditional render based on if the state = null, undefined, 
-    //  if true, show login
-    // else show stats
+    // console.log(this.state.user)
     return (
       <Router>
         <div>
