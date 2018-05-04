@@ -1,42 +1,58 @@
 import React, { Component } from 'react';
-import moment from 'moment';
+// import moment from 'moment';
+import _ from 'underscore';
+
 
 
 export default class TableRow extends Component {
 	 constructor(props) {
 		super(props);
-		this.state = { Workout : {
+		this.state = {
 			date: "date",
 			exercise: "exercise",
 			sets: 0,
 			reps: 0,
 			weight: 0
 		}
-	 	}
 	 }
-  
+
+
 	componentDidMount() {
 		fetch('/workout')
-			.then(res => res.json())
-			.then(date => this.setState({ date: date }))
-			.then(exercise => this.setState({ exercise: exercise }))
-			.then(sets => this.setState({ sets: sets }))
-			.then(reps => this.setState({ reps: reps }))
-			.then(weight => this.setState({ weight: weight }))	
-		console.log(date.date)    
- };
+			.then(res => res)
+			.then(function(data) {
+				console.log(data);
+				return data;
+			})
+			.then((date, exercise, sets, reps, weight ) => {
+				console.log("======", date)
+
+			}
+	
+			// this.setState({ 
+			// 	date: date,
+			// 	exercise: exercise,
+			// 	sets: sets,
+			// 	reps: reps,
+			// 	weight: weight
+			// }))	
+			)};	
+
 
 	render() {
+		console.log("state", this.state)
 		return (
-			<tr>
-				<td>{this.state.Workout.map(date =>
-				<div key={date.id}>{date.date}</div>)}</td>
+			<div>
+				{_.map(this.state, state => {
+					console.log("map state", state)
+					return (
+						<tr>
+							{/* <td>{date.exercise}</td>	 */}
+						</tr>
+					)
+				})}
+			</div>
 
-				<td>{this.state.exercise}</td>
-				<td>{this.state.set}</td>
-				<td>{this.state.reps}</td>
-				<td>{this.state.weight}</td>
-			</tr>
 		);
 	}
 }
