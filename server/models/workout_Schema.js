@@ -2,19 +2,16 @@
 //require Mongoose
 const mongoose = require('mongoose');
 //require Moment
-const moment = require('moment');
+// const moment = require('moment');
 // Define schema
 const Schema = mongoose.Schema;
 
 const NewWorkout = new Schema({
-  date: {
-    type: String,
-    default: moment().format('MM/DD/YY')
-  },
+  date: String,
   exercise: String,
-  sets: Number,
-  reps: Number,
+  // sets: Number,
   weight: Number,
+  reps: Number
 });
 
 // Compile model from schema

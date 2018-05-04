@@ -67,21 +67,42 @@ app.get('/todayworkout/:date', (req, res) => {
 //   });
 // });
 
-app.post('/logit', (req, res) => {
+// app.post('/logset', (req, res) => {
+//   const workout = new Workout;
+//   workout.exercise = req.body.exercise;
+//   workout.sets = req.body.sets;
+//   workout.reps = req.body.reps;
+//   workout.weight = req.body.weight;
+//
+//   workout.save(function(err) {
+//     if(err) {
+//       res.send(err);
+//     } else {
+//       console.log(workout);
+//       res.json({message: 'workout logged!'});
+//     }
+//   });
+// });
+
+app.post('/logworkout', (req, res) => {
+
+  console.log(req.body);
   const workout = new Workout;
   workout.exercise = req.body.exercise;
-  workout.sets = req.body.sets;
-  workout.reps = req.body.reps;
   workout.weight = req.body.weight;
+  // workout.sets = req.body.sets;
+  workout.reps = req.body.reps;
 
   workout.save(function(err) {
     if(err) {
-      res.send(err);
+      console.log(err);
     } else {
+      console.log('workout logged!');
       console.log(workout);
-      res.json({message: 'workout logged!'});
     }
   });
+
+  res.json(workout);
 });
 
 app.delete((req, res) => {

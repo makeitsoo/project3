@@ -18,9 +18,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    //  make axios request to  /api/current_user 
+    //  make axios request to  /api/current_user
     //  set the state of user to whatever the return value is
-    //  
+    //
 
     axios.get('/api/current_user')
       .then(response => {
@@ -51,4 +51,3 @@ class App extends Component {
 }
 
 export default App;
-

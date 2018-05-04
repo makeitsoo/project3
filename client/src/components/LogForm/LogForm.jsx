@@ -1,13 +1,14 @@
 import React from 'react';
 import axios from 'axios';
+import moment from 'moment'
 
 export default class LogForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       exercise: 'back extension',
-      weight: '25',
-      reps: '8'
+      weight: 25,
+      reps: 8
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -15,56 +16,42 @@ export default class LogForm extends React.Component {
   }
 
   handleInputChange(event) {
-    console.log(this.state);
-    const target = event.target,
-          value = target.value,
-          name = target.name;
+    let target = event.target,
+        name = target.name,
+        value = target.value;
 
-    console.log(target);
-    console.log(value);
-    console.log(name);
+    if (name === 'weight' || name === 'reps') {
+      value = Number(value);
+    };
 
     this.setState({
       [name]: value
     });
-
   }
 
   handleSubmit(event) {
-    // alert(
-    //   'Your exercise: ' + this.state.exercise +
-    //   ' | Your weight: ' + this.state.weight +
-    //   ' | Your reps: ' + this.state.reps);
-    console.log(this.state);
 
-    var postHeaders = new Headers();
-    postHeaders.append('Content-Type', 'application/json');
+    console.log(this.state.exercise);
 
-    var postInit = { method: 'POST',
-                   headers: postHeaders,
-                   body: JSON.stringify(this.state)};
+    var exerciseData = {
+      date: moment().format('MM/DD/YY'),
+      exercise: this.state.exercise,
+      weight: this.state.weight,
+      reps: this.state.reps
+    };
 
-    var postRequest = new Request(this.state,postInit);
+    fetch('http://localhost:3001/logworkout', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: exerciseData,
+      json: true
+    })
 
-    fetch(postRequest).then(function(response) {
-      console.log(response);
-    });
-
-
-
-    // axios.post('/logit', {
-    //   exercise: this.state.exercise,
-    //   weight: this.state.weight,
-    //   reps: this.state.reps
-    // })
-    // .then(function (response) {
-    //   console.log(response);
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
-    //
-    // event.preventDefault();
+    event.preventDefault();
   }
 
   render() {
