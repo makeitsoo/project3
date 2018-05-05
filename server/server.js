@@ -86,6 +86,7 @@ app.get('/todayworkout/:date', (req, res) => {
 
 app.post('/logworkout', (req, res) => {
 
+  console.log('Request Body: ');
   console.log(req.body);
   const workout = new Workout;
   workout.exercise = req.body.exercise;
@@ -98,11 +99,12 @@ app.post('/logworkout', (req, res) => {
       console.log(err);
     } else {
       console.log('workout logged!');
-      console.log(workout);
+      console.log('Output: ' + workout);
     }
   });
 
   res.json(workout);
+
 });
 
 app.delete((req, res) => {

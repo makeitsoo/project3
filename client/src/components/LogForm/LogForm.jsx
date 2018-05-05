@@ -31,27 +31,38 @@ export default class LogForm extends React.Component {
 
   handleSubmit(event) {
 
-    console.log(this.state.exercise);
+    event.preventDefault();
 
-    var exerciseData = {
-      date: moment().format('MM/DD/YY'),
-      exercise: this.state.exercise,
-      weight: this.state.weight,
-      reps: this.state.reps
-    };
+    console.log(this.state);
 
-    fetch('http://localhost:3001/logworkout', {
+    let dateData = moment().format('MM/DD/YY');
+
+    let url = 'http://localhost:3001/logworkout';
+
+    let exerciseData = {
+      "date": dateData,
+      "exercise": this.state.exercise,
+      "weight": this.state.weight,
+      "reps": this.state.reps
+    }
+
+    console.log(exerciseData);
+
+    fetch(url, {
       method: 'POST',
-      mode: 'no-cors',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
-      body: exerciseData,
-      json: true
+      body: JSON.stringify({
+        date: dateData,
+        exercise: this.state.exercise,
+        weight: this.state.weight,
+        reps: this.state.reps
+      }),
+      mode: 'no-cors'
     })
 
-    event.preventDefault();
   }
 
   render() {
