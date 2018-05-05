@@ -2,15 +2,17 @@
 //require Mongoose
 const mongoose = require('mongoose');
 //require Moment
-const moment = require('moment');
+// const moment = require('moment');
 // Define schema
 const Schema = mongoose.Schema;
 
 const NewWorkout = new Schema({
-  date: {
-    type: String,
-    default: moment().format('MM Do YY')
-  },
+  // date: {
+  //   type: String,
+  //   default: moment().format('MM/DD/YY')
+  // },
+  date: { type: Date,
+  default: Date.now },
   what: String,
   sets: Number,
   reps: Number,
