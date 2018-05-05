@@ -15,6 +15,11 @@
 
 }
 
+.custom-row {
+   min-height: 100px;
+   height: 100px;
+}
+
 .App-title {
   font-size: 1.5em;
 }
@@ -24,28 +29,24 @@
 }
 
 #title {
-  /*text-align: center;*/
-  height:50px;
-  width:80%;
-  margin-left: 10%;
-  margin-bottom: 10px;
+
 }
 
-#b1{  
+#b1{
   margin-right: 20%;
 }
 
-#b2{  
+#b2{
   margin-right: 20%;
   margin-left: 0px;
 }
 
-#b3{  
+#b3{
   margin-right: 20%;
   margin-left: 0px;
 }
 
-#b4{  
+#b4{
   margin-left: 0px;
 }
 
@@ -58,6 +59,29 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+#custom-header {
+  height: 150px;
+  padding: 7%;
+  background-color: white;
+}
+
+#main-content {
+  margin-top: 150px;
+}
+
+#custom-form {
+  padding-left: 85px;
+  padding-right: 85px;
+}
+
+#custom-submit {
+  padding-top: 20px;
+}
+
+#custom-footer {
+  background-color: white;
 }
 
 footer {
