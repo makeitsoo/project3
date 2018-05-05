@@ -16,8 +16,8 @@
 }
 
 .custom-row {
-   min-height: 100px;
-   height: 100px;
+   /* min-height: 100px; */
+   /* height: auto; */
 }
 
 .App-title {
@@ -69,6 +69,7 @@
 
 #main-content {
   margin-top: 150px;
+  margin-bottom: 50px;
 }
 
 #custom-form {
