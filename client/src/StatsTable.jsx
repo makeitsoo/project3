@@ -30,10 +30,26 @@ export default class StatsTable extends React.Component {
 
 
   render() {
-			const renderWorkouts = this.state.data ?
+			const renderWorkoutsDate = this.state.data ?
 				this.state.data.map((workout, index) => (
-					<td key={index}> {workout.date} </td>
-				)) : "No Workouts"
+					<div key={index}> {workout.date} </div>
+				)) : "No Workouts";
+	  const renderWorkoutsExercise = this.state.data ?
+		  this.state.data.map((workout, index) => (
+			  <div key={index}> {workout.what} </div>
+		  )) : "No Workouts";
+	  const renderWorkoutsSets = this.state.data ?
+		  this.state.data.map((workout, index) => (
+			  <div key={index}> {workout.sets} </div>
+		  )) : "No Workouts";
+	  const renderWorkoutsReps = this.state.data ?
+		  this.state.data.map((workout, index) => (
+			  <div key={index}> {workout.reps} </div>
+		  )) : "No Workouts";
+	  const renderWorkoutsWeight = this.state.data ?
+		  this.state.data.map((workout, index) => (
+			  <div key={index}> {workout.weight} </div>
+		  )) : "No Workouts";
 		return (
 			<div>
 				<table className="table">
@@ -47,7 +63,15 @@ export default class StatsTable extends React.Component {
 						</tr>
 					</thead>
 					<tbody>
-						{renderWorkouts}
+						<tr><td>{renderWorkoutsDate}</td></tr>
+				
+						<tr><td>{renderWorkoutsExercise}</td></tr>
+				
+						<tr><td>{renderWorkoutsSets}</td></tr>
+				
+						<tr><td>{renderWorkoutsReps}</td></tr>
+					
+						<tr><td>{renderWorkoutsWeight}</td></tr>
 					</tbody>
 				</table>
 			</div>
