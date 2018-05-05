@@ -1,4 +1,4 @@
-//Using this Schema for MVP. 
+//Using this Schema for MVP.
 //require Mongoose
 const mongoose = require('mongoose');
 //require Moment
@@ -11,7 +11,7 @@ const NewWorkout = new Schema({
     type: String,
     default: moment().format('MM/DD/YY')
   },
-  what: String,
+  exercise: String,
   sets: Number,
   reps: Number,
   weight: Number,

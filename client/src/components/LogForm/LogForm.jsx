@@ -1,12 +1,14 @@
 import React from 'react';
+import axios from 'axios';
+import moment from 'moment'
 
 export default class LogForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       exercise: 'back extension',
-      weight: '25',
-      reps: '8'
+      weight: 25,
+      reps: 8
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -14,28 +16,43 @@ export default class LogForm extends React.Component {
   }
 
   handleInputChange(event) {
-    console.log(this.state);
-    const target = event.target,
-          value = target.value,
-          name = target.name;
+    let target = event.target,
+        name = target.name,
+        value = target.value;
 
-    console.log(target);
-    console.log(value);
-    console.log(name);
+    if (name === 'weight' || name === 'reps') {
+      value = Number(value);
+    };
 
     this.setState({
       [name]: value
     });
-
   }
 
   handleSubmit(event) {
-    alert(
-      'Your exercise: ' + this.state.exercise +
-      ' | Your weight: ' + this.state.weight +
-      ' | Your reps: ' + this.state.reps);
-    console.log(this.state);
+
     event.preventDefault();
+
+    console.log(this.state);
+
+    let exerciseData = {
+      "date": moment().format('MM/DD/YY'),
+      "exercise": this.state.exercise,
+      "weight": this.state.weight,
+      "reps": this.state.reps
+    }
+
+    console.log(exerciseData);
+
+    axios.post('/api/logworkout', exerciseData)
+      .then(function (response) {
+        console.log(response);
+        console.log(exerciseData);
+      })
+      .catch(function (error) {
+        console.log(error);
+    });
+
   }
 
   render() {
