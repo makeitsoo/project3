@@ -27,13 +27,13 @@ const app = express();
 
 //Code required for bodyParser to work and pull JSON data and bring it in.
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [ keys.cookieKey ]
+    keys: [keys.cookieKey]
   })
 );
 
@@ -61,7 +61,7 @@ app.get('/api/workout', (req, res) => {
 
 // path for retreiving Todays Workout table data only
 app.get('/todayworkout/:date', (req, res) => {
-  Workout.find({ date: req.params.date})
+  Workout.find({ date: req.params.date })
     .then((workout) => {
       return res.json(workout);
     });
@@ -101,11 +101,11 @@ app.post('/api/logworkout', (req, res) => {
   workout.date = req.body.date
   workout.exercise = req.body.exercise;
   workout.weight = req.body.weight;
-  // workout.sets = req.body.sets;
   workout.reps = req.body.reps;
+  workout.set = req.body.set;
 
-  workout.save(function(err) {
-    if(err) {
+  workout.save(function (err) {
+    if (err) {
       console.log(err);
     } else {
       console.log('workout logged!');
