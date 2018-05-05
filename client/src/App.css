@@ -28,16 +28,16 @@
 }
 
 #b1{  
-  margin-right: 10%;
+  margin-right: 20%;
 }
 
 #b2{  
-  margin-right: 10%;
+  margin-right: 20%;
   margin-left: 0px;
 }
 
 #b3{  
-  margin-right: 10%;
+  margin-right: 20%;
   margin-left: 0px;
 }
 
@@ -46,9 +46,9 @@
 }
 
 .NavButton {
-    width: 50px;
-    height: 50px;
-    margin-top: -15px;
+    width: 30px;
+    height: 30px;
+    margin-top: -10px;
 }
 
 @keyframes App-logo-spin {
