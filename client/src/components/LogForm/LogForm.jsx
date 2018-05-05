@@ -35,48 +35,22 @@ export default class LogForm extends React.Component {
 
     console.log(this.state);
 
-    let dateData = moment().format('MM/DD/YY');
-
-    let url = 'http://localhost:3001/logworkout';
-
     let exerciseData = {
-      date: dateData,
-      exercise: this.state.exercise,
-      weight: this.state.weight,
-      reps: this.state.reps
+      "date": moment().format('MM/DD/YY'),
+      "exercise": this.state.exercise,
+      "weight": this.state.weight,
+      "reps": this.state.reps
     }
 
     console.log(exerciseData);
-    //
-    // fetch(url, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     date: dateData,
-    //     exercise: this.state.exercise,
-    //     weight: this.state.weight,
-    //     reps: this.state.reps
-    //   }),
-    //   mode: 'no-cors'
-    // })
 
-    const config = {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      mode: 'no-cors'
-    }
-
-    axios.post(url, exerciseData, config)
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
+    axios.post('/api/logworkout', exerciseData)
+      .then(function (response) {
+        console.log(response);
+        console.log(exerciseData);
+      })
+      .catch(function (error) {
+        console.log(error);
     });
 
   }

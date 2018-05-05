@@ -24,7 +24,11 @@ mongoose.connect(db, function (error) {
 });
 
 const app = express();
-app.use(bodyParser.json());
+
+//Code required for bodyParser to work and pull JSON data and bring it in.
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json())
 
 app.use(
   cookieSession({
@@ -51,7 +55,7 @@ app.get('/api/workout', (req, res) => {
   Workout.find({})
     .then(function (workout) {
       console.log('workout', workout);
-      return res.json(workout); 
+      return res.json(workout);
     });
 });
 
@@ -59,7 +63,7 @@ app.get('/api/workout', (req, res) => {
 app.get('/todayworkout/:date', (req, res) => {
   Workout.find({ date: req.params.date})
     .then((workout) => {
-      return res.json(workout); 
+      return res.json(workout);
     });
 });
 
@@ -89,11 +93,12 @@ app.get('/todayworkout/:date', (req, res) => {
 //   });
 // });
 
-app.post('/logworkout', (req, res) => {
+app.post('/api/logworkout', (req, res) => {
 
   console.log('Request Body: ');
   console.log(req.body);
   const workout = new Workout;
+  workout.date = req.body.date
   workout.exercise = req.body.exercise;
   workout.weight = req.body.weight;
   // workout.sets = req.body.sets;
