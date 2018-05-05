@@ -9,9 +9,9 @@ const Schema = mongoose.Schema;
 const NewWorkout = new Schema({
   date: String,
   exercise: String,
-  // sets: Number,
   weight: Number,
-  reps: Number
+  reps: Number,
+  set: Number
 });
 
 // Compile model from schema

@@ -12,9 +12,9 @@ const NewWorkout = new Schema({
     default: moment().format('MM/DD/YY')
   },
   exercise: String,
-  sets: Number,
   reps: Number,
   weight: Number,
+  set: Number
 });
 
 // Compile model from schema

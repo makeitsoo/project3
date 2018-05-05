@@ -8,7 +8,7 @@ export default class StatsTable extends React.Component {
 		this.state = {
 			date: "date",
 			exercise: "exercise",
-			sets: 0,
+			set: 0,
 			reps: 0,
 			weight: 0
 		}
@@ -29,27 +29,27 @@ export default class StatsTable extends React.Component {
 	}
 
 
-  render() {
+	render() {
 		const renderWorkoutsDate = this.state.data ?
 			this.state.data.map((workout, index) => (
 				<div key={index}> {workout.date} </div>
 			)) : "No Workouts";
-	  const renderWorkoutsExercise = this.state.data ?
-		  this.state.data.map((workout, index) => (
-			  <div key={index}> {workout.exercise} </div>
-		  )) : "No Workouts";
-	  const renderWorkoutsSets = this.state.data ?
-		  this.state.data.map((workout, index) => (
-			  <div key={index}> {workout.sets} </div>
-		  )) : "No Workouts";
-	  const renderWorkoutsReps = this.state.data ?
-		  this.state.data.map((workout, index) => (
-			  <div key={index}> {workout.reps} </div>
-		  )) : "No Workouts";
-	  const renderWorkoutsWeight = this.state.data ?
-		  this.state.data.map((workout, index) => (
-			  <div key={index}> {workout.weight} </div>
-		  )) : "No Workouts";
+		const renderWorkoutsExercise = this.state.data ?
+			this.state.data.map((workout, index) => (
+				<div key={index}> {workout.exercise} </div>
+			)) : "No Workouts";
+		const renderWorkoutsSet = this.state.data ?
+			this.state.data.map((workout, index) => (
+				<div key={index}> {workout.set} </div>
+			)) : "No Workouts";
+		const renderWorkoutsReps = this.state.data ?
+			this.state.data.map((workout, index) => (
+				<div key={index}> {workout.reps} </div>
+			)) : "No Workouts";
+		const renderWorkoutsWeight = this.state.data ?
+			this.state.data.map((workout, index) => (
+				<div key={index}> {workout.weight} </div>
+			)) : "No Workouts";
 		return (
 			<div>
 				<table className="table">
@@ -66,13 +66,13 @@ export default class StatsTable extends React.Component {
 						<tr>
 							<td>{renderWorkoutsDate}</td>
 							<td>{renderWorkoutsExercise}</td>
-							<td>{renderWorkoutsSets}</td>
+							<td>{renderWorkoutsSet}</td>
 							<td>{renderWorkoutsReps}</td>
 							<td>{renderWorkoutsWeight}</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
-    );
-  }
+		);
+	}
 }

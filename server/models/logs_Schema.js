@@ -8,7 +8,7 @@ const Newlog = new Schema({
   log_date: Date,
   log_exercise: String,
   log_weight: Number,
-  log_sets: Number,
+  log_set: Number,
   log_reps: Number
 });
 
