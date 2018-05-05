@@ -1,14 +1,15 @@
 import React from 'react';
 import axios from 'axios';
-import moment from 'moment'
+import moment from 'moment';
 
 export default class LogForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      exercise: 'back extension',
+      exercise: 'Back Extension',
       weight: 25,
-      reps: 8
+      reps: 8,
+      set: 1
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -17,10 +18,10 @@ export default class LogForm extends React.Component {
 
   handleInputChange(event) {
     let target = event.target,
-        name = target.name,
-        value = target.value;
+      name = target.name,
+      value = target.value;
 
-    if (name === 'weight' || name === 'reps') {
+    if (name === 'weight' || name === 'reps' || name === 'set') {
       value = Number(value);
     };
 
@@ -39,7 +40,8 @@ export default class LogForm extends React.Component {
       "date": moment().format('MM/DD/YY'),
       "exercise": this.state.exercise,
       "weight": this.state.weight,
-      "reps": this.state.reps
+      "reps": this.state.reps,
+      "set": this.state.set
     }
 
     console.log(exerciseData);
@@ -51,7 +53,7 @@ export default class LogForm extends React.Component {
       })
       .catch(function (error) {
         console.log(error);
-    });
+      });
 
   }
 
@@ -267,6 +269,30 @@ export default class LogForm extends React.Component {
             <option value="48">48</option>
             <option value="49">49</option>
             <option value="50">50</option>
+          </select>
+        </label>
+
+        <label>
+          Set:
+          <select
+            name="set"
+            value={this.state.set}
+            onChange={this.handleInputChange}>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
           </select>
         </label>
 
