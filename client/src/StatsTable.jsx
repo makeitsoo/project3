@@ -1,7 +1,9 @@
 import React from 'react';
 import TableRow from './TableRow';
+import ReactTable from "react-table";
 import axios from 'axios';
 import './App.css';
+
 
 export default class StatsTable extends React.Component {
 	constructor(props) {
@@ -26,6 +28,7 @@ export default class StatsTable extends React.Component {
 				this.setState({
 					data: response.data
 				});
+				console.log(this.state.data);
 			})
 	}
 
@@ -51,7 +54,51 @@ export default class StatsTable extends React.Component {
 			this.state.data.map((workout, index) => (
 				<div key={index}> {workout.weight} </div>
 			)) : "No Workouts";
+
+		// //React-Table Code
+		// const data = [{
+		// 	date: '10/10/10',
+		// 	exercise: 'Push-Up',
+		// 	sets: 3,
+		// 	reps: 5,
+		// 	weight: 100,
+		// }]
+		//
+		// const columns = [
+		// 	{
+		// 		Header: 'Date',
+		// 		accessor: 'date', // String-based value accessors!
+		// 	},
+		// 	{
+		// 		Header: 'Exercise',
+		// 		accessor: 'exercise',
+		// 	},
+		// 	{
+		// 		Header: 'Sets',
+		// 		accessor: 'sets',
+		// 		Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+		// 	},
+		// 	{
+		// 		Header: 'Reps',
+		// 		accessor: 'reps',
+		// 		Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+		// 	},
+		// 	{
+		// 		Header: 'Lbs',
+		// 		accessor: 'weight',
+		// 		Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+		// 	}]
+
 		return (
+			// //React-Table Code
+			// <div className="container" id="main-content">
+			// 	<ReactTable
+			// 		width={10}
+			//     data={data}
+			//     columns={columns}
+			//   />
+			// </div>
+
 			<div className="container" id="main-content">
 				<table className="table table-striped">
 					<thead>
@@ -65,6 +112,7 @@ export default class StatsTable extends React.Component {
 					</thead>
 					<tbody>
 						<tr className="custom-row">
+
 							<td>{renderWorkoutsDate}</td>
 							<td>{renderWorkoutsExercise}</td>
 							<td>{renderWorkoutsSet}</td>
