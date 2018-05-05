@@ -25,7 +25,7 @@ class App extends Component {
     axios.get('/api/current_user')
       .then(response => {
         // console.log(response.data.googleId)
-        this.setState({user: response.data.googleId})
+        this.setState({ user: response.data.googleId })
         // state.user = response.data.googleId;
         console.log(this.state.user)
         // conditional render -- if response === undefined || null then render google login strategy
@@ -40,8 +40,8 @@ class App extends Component {
         <div>
           <Staticpage />
           <Switch>
-            <Route path="/logit" component={LogForm}/>
-            <Route exact path="/" component={Stats}/>
+            <Route path="/logit" component={LogForm} />
+            <Route exact path="/" component={Stats} />
           </Switch>
           <StaticFooter />
         </div>
