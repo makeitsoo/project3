@@ -33,24 +33,30 @@ export default class StatsTable extends React.Component {
 	render() {
 		const renderWorkoutsDate = this.state.data ?
 			this.state.data.map((workout, index) => (
-				<div key={index}> {workout.date} </div>
+				<tr className="custom-row">
+					<td key={index}> {workout.date} </td>
+					<td key={index}> {workout.exercise} </td>
+					<td key={index}> {workout.set} </td>
+					<td key={index}> {workout.reps} </td>
+					<td key={index}> {workout.weight} </td>
+				</tr>
 			)) : "No Workouts";
-		const renderWorkoutsExercise = this.state.data ?
-			this.state.data.map((workout, index) => (
-				<div key={index}> {workout.exercise} </div>
-			)) : "No Workouts";
-		const renderWorkoutsSet = this.state.data ?
-			this.state.data.map((workout, index) => (
-				<div key={index}> {workout.set} </div>
-			)) : "No Workouts";
-		const renderWorkoutsReps = this.state.data ?
-			this.state.data.map((workout, index) => (
-				<div key={index}> {workout.reps} </div>
-			)) : "No Workouts";
-		const renderWorkoutsWeight = this.state.data ?
-			this.state.data.map((workout, index) => (
-				<div key={index}> {workout.weight} </div>
-			)) : "No Workouts";
+		// const renderWorkoutsExercise = this.state.data ?
+		// 	this.state.data.map((workout, index) => (
+		// 		<td key={index}> {workout.exercise} </td>
+		// 	)) : "No Workouts";
+		// const renderWorkoutsSet = this.state.data ?
+		// 	this.state.data.map((workout, index) => (
+		// 		<td key={index}> {workout.set} </td>
+		// 	)) : "No Workouts";
+		// const renderWorkoutsReps = this.state.data ?
+		// 	this.state.data.map((workout, index) => (
+		// 		<td key={index}> {workout.reps} </td>
+		// 	)) : "No Workouts";
+		// const renderWorkoutsWeight = this.state.data ?
+		// 	this.state.data.map((workout, index) => (
+		// 		<td key={index}> {workout.weight} </td>
+		// 	)) : "No Workouts";
 		return (
 			<div className="container" id="main-content">
 				<table className="table table-striped">
@@ -64,13 +70,14 @@ export default class StatsTable extends React.Component {
 						</tr>
 					</thead>
 					<tbody>
-						<tr className="custom-row">
-							<td>{renderWorkoutsDate}</td>
-							<td>{renderWorkoutsExercise}</td>
-							<td>{renderWorkoutsSet}</td>
-							<td>{renderWorkoutsReps}</td>
-							<td>{renderWorkoutsWeight}</td>
-						</tr>
+						{renderWorkoutsDate}
+						{/* <tr className="custom-row d-block">
+							{renderWorkoutsDate}
+							{renderWorkoutsExercise}
+							{renderWorkoutsSet}
+							{renderWorkoutsReps}
+							{renderWorkoutsWeight}
+						</tr> */}
 					</tbody>
 				</table>
 			</div>
