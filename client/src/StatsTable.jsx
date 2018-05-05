@@ -1,6 +1,7 @@
 import React from 'react';
 import TableRow from './TableRow';
 import axios from 'axios';
+import './App.css';
 
 export default class StatsTable extends React.Component {
 	constructor(props) {
@@ -51,19 +52,19 @@ export default class StatsTable extends React.Component {
 				<div key={index}> {workout.weight} </div>
 			)) : "No Workouts";
 		return (
-			<div>
-				<table className="table">
+			<div className="container" id="main-content">
+				<table className="table table-striped">
 					<thead>
 						<tr>
 							<th scope="col">Date</th>
 							<th scope="col">Exercise</th>
-							<th scope="col">Set #</th>
+							<th scope="col">Sets</th>
 							<th scope="col">Reps</th>
 							<th scope="col">Lbs</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
+						<tr className="custom-row">
 							<td>{renderWorkoutsDate}</td>
 							<td>{renderWorkoutsExercise}</td>
 							<td>{renderWorkoutsSet}</td>
