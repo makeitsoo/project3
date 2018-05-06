@@ -1,8 +1,8 @@
 
-# Workout-app --> CUT? getCut? repIt? 
+# BEASTNODE
 
 ## Overview
-Simple app for quickly and easily recording info during your workouts at the gym (e.g. chest fly, 4 sets of 10 reps, 150 lbs.)
+BeastNode is a simple workout app for quickly and easily recording info during your workouts at the gym (e.g. chest fly, 4 sets of 10 reps, 150 lbs.)
 
 
 ## Instructions 
