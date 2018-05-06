@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LogForm from './components/LogForm/LogForm';
 import Stats from './StatsTableContainer';
+import Charts from './components/Charts';
 //import GoogleLogin from './googleLogin';
 import Staticpage from './staticpage';
 import axios from 'axios';
@@ -41,6 +42,7 @@ class App extends Component {
           <Staticpage />
           <Switch>
             <Route path="/logit" component={LogForm} />
+            <Route path="/charts" component={Charts} />
             <Route exact path="/" component={Stats} />
           </Switch>
           <StaticFooter />
