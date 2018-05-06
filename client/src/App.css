@@ -62,13 +62,15 @@
 }
 
 #custom-header {
-  height: 150px;
-  padding: 7%;
+  height: 100px;
+  padding-top: 10px;
+  padding-left: 7%;
+  padding-right:7%;
   background-color: white;
 }
 
 #main-content {
-  margin-top: 150px;
+  margin-top: 110px;
   margin-bottom: 50px;
 }
 
@@ -96,4 +98,12 @@ footer {
     bottom: 0;
     height: 60px;
     width: 100%;
+}
+
+@media only screen and (min-width: 680px) {
+    body {
+
+        /* IMPLEMENT CODE TO STOP LOGO FROM OVERLAPPING COMPONENTS ON WIDESCREENS */
+        /*background-color: lightblue;*/
+    }
 }
