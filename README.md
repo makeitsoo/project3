@@ -4,25 +4,27 @@
 ## Overview
 BeastNode is a simple workout app for quickly and easily recording info during your workouts at the gym (e.g. chest fly, 4 sets of 10 reps, 150 lbs.)
 
+## LIVE DEMO
+http://workout-ap.herokuapp.com
 
-## Instructions 
+## Instructions for Running Locally.
 
 #### Install the dependencies and run the app
-1. Start the server - 
+1. Start the server -
 cd into the server side directory and run:
 ``` 
 npm install
 
 node index.js
-``` 
+```
 2. Start React -
 cd into the client side directory and run:
-``` 
+```
 yarn add
 
 yarn start
 ```
-3. Browser - 
+3. Browser -
 app server and endpoints listening on:
 ```
 localhost:3000
@@ -38,7 +40,7 @@ localhost:3000/api/logout
 
 ### Key Features
 ```
-- Ability to easily log an exercise after completion while at 
+- Ability to easily log an exercise after completion while at
   the gym
     - include option to edit/delete a previous entry
 - mobile responsive design
@@ -46,7 +48,7 @@ localhost:3000/api/logout
     - include filtering & sorting capabilities (e.g. sort by date, filter: bicep curls)
 - provide stats based on user previous logs/exercises
 - provide recommendations/challenges for increasing weights each time
-- use charts library for stats data/viz 
+- use charts library for stats data/viz
 - could track all sorts of stats:
     - frequency of user “checkins” (e.g. average of 3 activities per week, etc…)
     - set, rep, & workout counts for each exercise
@@ -209,6 +211,3 @@ project3_WorkoutApp/
     - description
     - points
 ```
-
-
-
