@@ -15,6 +15,10 @@
 
 }
 
+.rt-td {
+  width: auto;
+}
+
 .custom-row {
    /* min-height: 100px; */
    /* height: auto; */
@@ -85,6 +89,10 @@
 
 #custom-footer {
   background-color: white;
+}
+
+#custom-table {
+  width: 200px;
 }
 
 footer {

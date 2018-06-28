@@ -52,7 +52,7 @@ require('./routes/authRoutes')(app);
 
 // path for retreiving ALL users workout history
 app.get('/api/workout', (req, res) => {
-  Workout.find({})
+  Workout.find().sort({_id: -1})
     .then(function (workout) {
       console.log('workout', workout);
       return res.json(workout);
