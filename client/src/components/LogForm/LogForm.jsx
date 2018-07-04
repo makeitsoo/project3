@@ -9,7 +9,7 @@ export default class LogForm extends React.Component {
       exercise: 'Back Extension',
       weight: 25,
       reps: 8,
-      set: 1
+      set: 1,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -41,7 +41,8 @@ export default class LogForm extends React.Component {
       "exercise": this.state.exercise,
       "weight": this.state.weight,
       "reps": this.state.reps,
-      "set": this.state.set
+      "set": this.state.set,
+      "gID": "t3st"
     }
 
     console.log(exerciseData);

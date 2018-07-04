@@ -11,7 +11,8 @@ const NewWorkout = new Schema({
   exercise: String,
   weight: Number,
   reps: Number,
-  set: Number
+  set: Number,
+  gID: String
 });
 
 // Compile model from schema
